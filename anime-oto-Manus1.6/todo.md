@@ -1,0 +1,25 @@
+# Project TODO
+
+- [x] Diseño móvil vertical para Inicio, Calendario, Biblioteca, Detalle y hoja de reproducción.
+- [x] Catálogo tipado de animes por temporada y día de emisión.
+- [x] Selector de temporada y selector semanal de días.
+- [x] Tarjetas de anime con portada, horario, género y estado de favorito.
+- [x] Detalle de anime con títulos en japonés y romanji, sinopsis y metadatos.
+- [x] Canciones OP/ED con nombre japonés, romanji, artista y enlace oficial.
+- [x] Apertura de videos oficiales mediante navegador del sistema.
+- [x] Persistencia local de favoritos con AsyncStorage.
+- [x] Navegación inferior funcional entre Inicio, Calendario y Biblioteca.
+- [x] Logo personalizado y configuración de marca en app.config.ts.
+- [x] Iconos nuevos registrados en icon-symbol.tsx.
+- [x] Verificación de tipos, lint, tests y flujo de navegación.
+- [x] Capturas de revisión visual en escritorio y móvil.
+- [x] Crear checkpoint final antes de la entrega.
+- [x] Selector de años y temporadas pasadas en Inicio y Calendario.
+- [x] Sustituir búsquedas de YouTube por URLs directas verificadas de videos oficiales.
+- [x] Cargar la lista real y completa de animes por temporada desde la API pública de Jikan, con paginación.
+- [x] Integrar la ficha remota y sus canciones OP/ED con enlaces directos cuando Jikan entregue videos oficiales.
+- [x] Añadir estados de carga, error, reintento y vacío para temporadas sin resultados.
+- [x] Adaptar Anime Oto a una experiencia web de escritorio responsive.
+- [x] Añadir navegación lateral y layout de tres columnas para el catálogo.
+- [x] Ajustar detalle, calendario y biblioteca para teclado, hover y pantallas amplias.
+- [x] Validar vistas desktop y móvil sin perder compatibilidad web.
