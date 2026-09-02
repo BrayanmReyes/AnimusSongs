@@ -33,7 +33,7 @@ export default function LibraryScreen() {
       {isLoaded && favoriteAnimes.length === 0 && (
         <div className="flex-1 flex flex-col items-center justify-center rounded-[24px] border border-dashed border-[var(--color-border)] bg-[var(--color-surface)] p-7 min-h-[300px]">
           <div className="mb-4 h-14 w-14 flex items-center justify-center rounded-full bg-[var(--color-primary)]/15">
-            <Heart size={25} className="fill-[#A78BFA] text-[#A78BFA]" />
+            <Heart size={25} className="fill-[var(--color-primary)] text-[var(--color-primary)]" />
           </div>
           <h3 className="text-center text-[17px] font-bold text-[var(--color-foreground)]">
             Todavía no guardas nada
@@ -75,7 +75,7 @@ export default function LibraryScreen() {
                 </p>
               </div>
 
-              <ChevronRight size={19} className="text-[#A9A3B8] group-hover:text-[var(--color-primary)] transition-colors flex-shrink-0 ml-2" />
+              <ChevronRight size={19} className="text-[var(--color-muted)] group-hover:text-[var(--color-primary)] transition-colors flex-shrink-0 ml-2" />
             </Link>
           ))}
         </div>

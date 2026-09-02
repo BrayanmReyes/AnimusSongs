@@ -132,7 +132,7 @@ export default function CalendarScreen() {
         )}
 
         {error && (
-          <div className="mt-4 rounded-[20px] border border-[#FF7A90]/40 bg-[#FF7A90]/10 p-4">
+          <div className="mt-4 rounded-[20px] border border-[var(--color-error)]/40 bg-[var(--color-error)]/10 p-4">
             <h3 className="text-[14px] font-bold text-[var(--color-foreground)]">No se pudo cargar la agenda</h3>
             <p className="mt-1 text-[13px] leading-5 text-[var(--color-muted)]">{error}</p>
             <button

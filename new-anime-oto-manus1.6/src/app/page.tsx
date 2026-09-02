@@ -119,21 +119,21 @@ export default function Home() {
       </div>
 
       {/* Season Card */}
-      <div className="relative mb-5 overflow-hidden rounded-[26px] bg-[#211A3D] p-5">
-        <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-[#A78BFA]/20" />
-        <div className="absolute -bottom-16 -left-8 h-36 w-36 rounded-full bg-[#FF7A90]/15" />
-        <p className="relative z-10 text-[12px] font-bold uppercase tracking-[1.5px] text-[#D8CCFF]">
+      <div className="relative mb-5 overflow-hidden rounded-[26px] bg-[var(--color-surface)] p-5">
+        <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-[var(--color-primary)]/20" />
+        <div className="absolute -bottom-16 -left-8 h-36 w-36 rounded-full bg-[var(--color-error)]/15" />
+        <p className="relative z-10 text-[12px] font-bold uppercase tracking-[1.5px] text-[var(--color-foreground)]">
           TEMPORADA SELECCIONADA
         </p>
         <h2 className="relative z-10 mt-2 text-[25px] font-bold text-white">
           {getSeasonLabel(selectedYear, selectedSeason)}
         </h2>
-        <p className="relative z-10 mt-1 max-w-[270px] text-[13px] leading-5 text-[#C9C0DF]">
+        <p className="relative z-10 mt-1 max-w-[270px] text-[13px] leading-5 text-[var(--color-muted)]">
           El catálogo real de esta temporada, con sus estrenos y soundtrack cuando está disponible.
         </p>
         <div className="relative z-10 mt-4 flex items-center">
-          <div className="h-2 w-2 rounded-full bg-[#39D39B]" />
-          <span className="ml-2 text-[12px] font-semibold text-[#D8CCFF]">
+          <div className="h-2 w-2 rounded-full bg-[var(--color-success)]" />
+          <span className="ml-2 text-[12px] font-semibold text-[var(--color-foreground)]">
             {loading ? "Cargando catálogo…" : source ? `Fuente: ${source}` : "Sin conexión"}
           </span>
         </div>
@@ -154,7 +154,7 @@ export default function Home() {
       )}
 
       {!loading && error && (
-        <div className="mb-5 rounded-[22px] border border-[#FF7A90]/40 bg-[#FF7A90]/10 p-5">
+        <div className="mb-5 rounded-[22px] border border-[var(--color-error)]/40 bg-[var(--color-error)]/10 p-5">
           <h3 className="text-[15px] font-bold text-[var(--color-foreground)]">No se pudo cargar la temporada</h3>
           <p className="mt-1 text-[13px] leading-5 text-[var(--color-muted)]">{error}</p>
           <button
@@ -280,7 +280,7 @@ export default function Home() {
                   >
                     <Heart
                       size={19}
-                      className={isFav ? "fill-[#FF7A90] text-[#FF7A90]" : "text-[var(--color-muted)]"}
+                      className={isFav ? "fill-[var(--color-error)] text-[var(--color-error)]" : "text-[var(--color-muted)]"}
                     />
                   </button>
                 </div>
