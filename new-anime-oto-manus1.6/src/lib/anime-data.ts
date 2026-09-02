@@ -9,6 +9,9 @@ export type Song = {
   artist: string;
   youtubeUrl: string;
   sourceChannel: string;
+  version?: number | null;
+  resolution?: number | null;
+  episodes?: string | null;
 };
 
 export type Anime = {
