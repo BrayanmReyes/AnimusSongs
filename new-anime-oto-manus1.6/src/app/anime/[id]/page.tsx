@@ -206,7 +206,7 @@ export default function AnimeDetailScreen({ params }: { params: Promise<{ id: st
       <div className="mb-3 mt-7 flex items-end justify-between">
         <div>
           <h2 className="text-[18px] font-bold text-[var(--color-foreground)]">Soundtrack</h2>
-          <p className="mt-1 text-[12px] text-[var(--color-muted)]">Opening y ending directos cuando existen</p>
+          <p className="mt-1 text-[12px] text-[var(--color-muted)]">Opening y Ending del Anime</p>
         </div>
         <Music size={22} style={{ color: anime.accent || 'var(--color-primary)' }} />
       </div>
@@ -245,8 +245,29 @@ export default function AnimeDetailScreen({ params }: { params: Promise<{ id: st
               <h3 className="text-[15px] font-bold text-[var(--color-foreground)] truncate">{item.titleRomanji}</h3>
               <p className="mt-0.5 text-[13px] text-[var(--color-muted)] truncate">{item.titleJapanese}</p>
               <p className="mt-2 text-[12px] text-[var(--color-muted)] truncate">
-                {item.artist} · {item.sourceChannel}
+                {item.artist}
               </p>
+
+              {/* Extra details (version, resolution, episodes) */}
+              {(item.version || item.resolution || item.episodes) && (
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {item.version && (
+                    <span className="rounded bg-[var(--color-border)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--color-foreground)]">
+                      v{item.version}
+                    </span>
+                  )}
+                  {item.resolution && (
+                    <span className="rounded bg-[var(--color-border)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--color-foreground)]">
+                      {item.resolution}p
+                    </span>
+                  )}
+                  {item.episodes && (
+                    <span className="rounded bg-[var(--color-border)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--color-foreground)]">
+                      Ep. {item.episodes}
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
 
             <a
