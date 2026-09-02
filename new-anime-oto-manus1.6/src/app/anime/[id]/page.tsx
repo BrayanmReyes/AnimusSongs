@@ -108,7 +108,7 @@ export default function AnimeDetailScreen({ params }: { params: Promise<{ id: st
           onClick={() => toggleFavorite(anime.id)}
           className="h-10 w-10 flex items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] hover:opacity-70 transition-opacity"
         >
-          <Heart size={19} className={saved ? "fill-[#FF7A90] text-[#FF7A90]" : "text-[var(--color-muted)]"} />
+          <Heart size={19} className={saved ? "fill-[var(--color-error)] text-[var(--color-error)]" : "text-[var(--color-muted)]"} />
         </button>
       </div>
 
