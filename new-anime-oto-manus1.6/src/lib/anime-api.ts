@@ -152,8 +152,19 @@ export async function fetchAnimeById(id: string): Promise<Anime> {
 
 function buildThemeSong(theme: any, video: any): Song {
   const kind = theme.type === "ED" ? "ED" : "OP";
-  const title = theme.slug || `${kind} oficial`;
-  return { id: `animethemes-${video.id}`, kind, titleRomanji: title, titleJapanese: title, artist: "Tema oficial", youtubeUrl: video.link, sourceChannel: "AnimeThemes.moe" };
+  const themeSlug = theme.slug || `${kind} oficial`;
+  const songTitle = theme.song?.title || themeSlug;
+  const artistName = theme.song?.artists?.[0]?.name || "Artista desconocido";
+
+  return {
+    id: `animethemes-${video.id}`,
+    kind,
+    titleRomanji: songTitle,
+    titleJapanese: themeSlug,
+    artist: artistName,
+    youtubeUrl: video.link,
+    sourceChannel: "AnimeThemes.moe"
+  };
 }
 
 export async function fetchThemeSongs(malId?: number) {
@@ -162,7 +173,7 @@ export async function fetchThemeSongs(malId?: number) {
   params.set("filter[has]", "resources");
   params.set("filter[site]", "MyAnimeList");
   params.set("filter[external_id]", String(malId));
-  params.set("include", "animethemes,animethemes.animethemeentries,animethemes.animethemeentries.videos");
+  params.set("include", "animethemes,animethemes.song,animethemes.song.artists,animethemes.animethemeentries,animethemes.animethemeentries.videos");
   const body = await fetchJson<any>(`${ANIMETHEMES_BASE}/anime?${params.toString()}`);
   const anime = body.anime?.[0];
   return (anime?.animethemes || []).flatMap((theme: any) => (theme.animethemeentries || []).flatMap((entry: any) => (entry.videos || []).map((video: any) => buildThemeSong(theme, video))));

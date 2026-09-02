@@ -22,6 +22,10 @@ export default function AnimeDetailScreen({ params }: { params: Promise<{ id: st
   const [songsLoading, setSongsLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const [translatedSynopsis, setTranslatedSynopsis] = useState<string | null>(null);
+  const [isTranslating, setIsTranslating] = useState(false);
+  const [showTranslated, setShowTranslated] = useState(false);
+
   const { isLoaded, isFavorite, toggleFavorite } = useFavorites();
   const saved = isLoaded ? isFavorite(id) : false;
 
@@ -73,6 +77,31 @@ export default function AnimeDetailScreen({ params }: { params: Promise<{ id: st
       </div>
     );
   }
+
+  const handleTranslate = async () => {
+    if (translatedSynopsis) {
+      setShowTranslated(!showTranslated);
+      return;
+    }
+
+    if (!anime?.synopsis) return;
+
+    setIsTranslating(true);
+    try {
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=es&dt=t&q=${encodeURIComponent(anime.synopsis)}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const translation = data[0].map((item: any[]) => item[0]).join("");
+      setTranslatedSynopsis(translation);
+      setShowTranslated(true);
+    } catch (err) {
+      console.error("Translation failed:", err);
+      // Fallback behavior or silent fail if needed
+    } finally {
+      setIsTranslating(false);
+    }
+  };
 
   if (error || !anime) {
     return (
@@ -151,8 +180,27 @@ export default function AnimeDetailScreen({ params }: { params: Promise<{ id: st
       </div>
 
       {/* Synopsis */}
-      <h2 className="mb-2 mt-7 text-[18px] font-bold text-[var(--color-foreground)]">La historia</h2>
-      <p className="text-[14px] leading-6 text-[var(--color-muted)] whitespace-pre-wrap">{anime.synopsis}</p>
+      <div className="mb-2 mt-7 flex items-end justify-between">
+        <h2 className="text-[18px] font-bold text-[var(--color-foreground)]">La historia</h2>
+        {anime.synopsis && anime.synopsis.trim().length > 0 && anime.synopsis !== "La sinopsis todavía no está disponible." && (
+          <button
+            onClick={handleTranslate}
+            disabled={isTranslating}
+            className="text-[12px] font-semibold text-[var(--color-primary)] hover:opacity-80 transition-opacity"
+          >
+            {isTranslating ? (
+              <span className="flex items-center"><Loader2 className="animate-spin mr-1" size={12} /> Traduciendo...</span>
+            ) : showTranslated ? (
+              "Ver original"
+            ) : (
+              "Traducir al español"
+            )}
+          </button>
+        )}
+      </div>
+      <p className="text-[14px] leading-6 text-[var(--color-muted)] whitespace-pre-wrap">
+        {showTranslated && translatedSynopsis ? translatedSynopsis : anime.synopsis}
+      </p>
 
       {/* Soundtrack Section */}
       <div className="mb-3 mt-7 flex items-end justify-between">
