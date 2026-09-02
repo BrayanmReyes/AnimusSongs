@@ -1,37 +1,47 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #A78BFA;
-  --color-primary-light: #8B5CF6;
-
-  --color-background: #0B0A12;
-  --color-background-light: #F8F7FC;
-
-  --color-surface: #151322;
-  --color-surface-light: #FFFFFF;
-
-  --color-foreground: #F7F4FF;
-  --color-foreground-light: #191625;
-
-  --color-muted: #A9A3B8;
-  --color-muted-light: #716B83;
-
-  --color-border: #2C2740;
-  --color-border-light: #E7E1F0;
-
-  --color-success: #39D39B;
-  --color-success-light: #16A276;
-
-  --color-warning: #FBBF24;
-  --color-warning-light: #D88A15;
-
-  --color-error: #FF7A90;
-  --color-error-light: #DF4964;
+  --color-primary: var(--color-primary-val);
+  --color-background: var(--color-background-val);
+  --color-surface: var(--color-surface-val);
+  --color-foreground: var(--color-foreground-val);
+  --color-muted: var(--color-muted-val);
+  --color-border: var(--color-border-val);
+  --color-success: var(--color-success-val);
+  --color-warning: var(--color-warning-val);
+  --color-error: var(--color-error-val);
 }
 
 :root {
-  --background: var(--color-background);
-  --foreground: var(--color-foreground);
+  /* Default dark theme */
+  --color-primary-val: #A78BFA;
+  --color-background-val: #0B0A12;
+  --color-surface-val: #151322;
+  --color-foreground-val: #F7F4FF;
+  --color-muted-val: #A9A3B8;
+  --color-border-val: #2C2740;
+  --color-success-val: #39D39B;
+  --color-warning-val: #FBBF24;
+  --color-error-val: #FF7A90;
+
+  --background: var(--color-background-val);
+  --foreground: var(--color-foreground-val);
+}
+
+.light {
+  /* Light theme */
+  --color-primary-val: #8B5CF6;
+  --color-background-val: #F8F7FC;
+  --color-surface-val: #FFFFFF;
+  --color-foreground-val: #191625;
+  --color-muted-val: #716B83;
+  --color-border-val: #E7E1F0;
+  --color-success-val: #16A276;
+  --color-warning-val: #D88A15;
+  --color-error-val: #DF4964;
+
+  --background: var(--color-background-val);
+  --foreground: var(--color-foreground-val);
 }
 
 body {
