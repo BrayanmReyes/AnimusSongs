@@ -142,7 +142,7 @@ export default function AnimeDetailScreen({ params }: { params: Promise<{ id: st
       </div>
 
       {/* Hero Section */}
-      <div className="overflow-hidden rounded-[26px] bg-[var(--color-surface)]">
+      <div className="overflow-hidden rounded-[26px] glass-card">
         <div className="relative h-[260px] w-full">
           <Image
             src={anime.image}
@@ -230,7 +230,7 @@ export default function AnimeDetailScreen({ params }: { params: Promise<{ id: st
 
       {/* Songs List */}
       {!songsLoading && anime.songs && anime.songs.map((item) => (
-        <div key={item.id} className="mb-3 rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+        <div key={item.id} className="mb-3 rounded-[20px] glass-card p-4">
           <div className="flex items-start">
             <div
               className="mr-3 h-10 w-10 flex items-center justify-center rounded-full flex-shrink-0"
@@ -284,7 +284,7 @@ export default function AnimeDetailScreen({ params }: { params: Promise<{ id: st
             href={item.youtubeUrl || "#"}
             target={item.youtubeUrl ? "_blank" : undefined}
             rel="noopener noreferrer"
-            className={`mt-4 flex items-center justify-center rounded-full border border-[var(--color-border)] py-2.5 ${!item.youtubeUrl ? 'opacity-45 pointer-events-none' : 'hover:bg-[var(--color-border)]/50 transition-colors'}`}
+              className={`mt-4 flex items-center justify-center rounded-full border border-[var(--color-border)] py-2.5 ${!item.youtubeUrl ? 'opacity-45 pointer-events-none' : 'hover-glow'}`}
           >
             <Play size={13} className="text-[var(--color-primary)] fill-[var(--color-primary)]" />
             <span className="ml-2 text-[12px] font-semibold text-[var(--color-foreground)]">
