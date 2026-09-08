@@ -51,7 +51,7 @@ export default function LibraryScreen() {
             <Link
               key={item.id}
               href={`/anime/${item.id}`}
-              className="flex flex-row overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] p-3 hover:opacity-75 transition-opacity items-center group"
+              className="flex flex-row overflow-hidden rounded-[22px] glass-card p-3 hover-glow items-center group"
             >
               <div className="relative h-[88px] w-[66px] flex-shrink-0">
                 <Image

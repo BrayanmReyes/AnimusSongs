@@ -163,7 +163,7 @@ export default function CalendarScreen() {
       )}
 
       {!noSchedule && days.map((item, index) => (
-        <div key={item.day} className="mb-3 overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div key={item.day} className="mb-3 overflow-hidden rounded-[22px] glass-card">
           <div className="flex items-center justify-between p-4">
             <div className="flex items-center">
               <div className={`mr-3 h-10 w-10 flex items-center justify-center rounded-full ${item.shows.length ? "bg-[var(--color-primary)]/15" : "bg-[var(--background)]"}`}>

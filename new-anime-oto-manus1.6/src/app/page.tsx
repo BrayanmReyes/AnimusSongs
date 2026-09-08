@@ -119,7 +119,7 @@ export default function Home() {
       </div>
 
       {/* Season Card */}
-      <div className="relative mb-5 overflow-hidden rounded-[26px] bg-[var(--color-surface)] p-5">
+      <div className="relative mb-5 overflow-hidden rounded-[26px] glass-card p-5">
         <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-[var(--color-primary)]/20" />
         <div className="absolute -bottom-16 -left-8 h-36 w-36 rounded-full bg-[var(--color-error)]/15" />
         <p className="relative z-10 text-[12px] font-bold uppercase tracking-[1.5px] text-[var(--color-foreground)]">
@@ -168,7 +168,7 @@ export default function Home() {
 
       {/* Featured Anime */}
       {!loading && !error && featured && (
-        <Link href={`/anime/${featured.id}`} className="block mb-5 overflow-hidden rounded-[24px] bg-[var(--color-surface)] hover:opacity-90 transition-opacity">
+        <Link href={`/anime/${featured.id}`} className="block mb-5 overflow-hidden rounded-[24px] glass-card hover-glow">
           <div className="relative h-[150px] w-full">
             <Image
               src={featured.image}
@@ -179,7 +179,7 @@ export default function Home() {
               unoptimized={featured.image.startsWith('http')}
             />
           </div>
-          <div className="-mt-5 mx-3 relative z-10 rounded-[18px] bg-[var(--color-surface)] p-4">
+          <div className="-mt-5 mx-3 relative z-10 rounded-[18px] glass-card p-4">
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-bold uppercase tracking-[1px] text-[var(--color-primary)]">
                 SELECCIÓN OTO
@@ -249,7 +249,7 @@ export default function Home() {
             <Link
               key={item.id}
               href={`/anime/${item.id}`}
-              className="flex flex-row overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] p-3 hover:opacity-75 transition-opacity"
+              className="flex flex-row overflow-hidden rounded-[22px] glass-card p-3 hover-glow"
             >
               <div className="relative h-[104px] w-[78px] flex-shrink-0">
                 <Image
